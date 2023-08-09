@@ -12,9 +12,7 @@ const Trailer = ({id,series = false}) => {
 
 
     useEffect(()=>{
-
         if(trailerIsSuccess){
-            console.log("movies",trailer.results)
             let data = trailer.results
             let len = data.length;
             setTrailerKey(data[len-1].key)

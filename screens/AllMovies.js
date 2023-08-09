@@ -10,8 +10,6 @@ const AllMovies = ({ navigation, route}) => {
 
     let genres = route.params.genres;
 
-    console.log("this is routqeshh",route.params)
-
     return (
     <View style={{backgroundColor : '#1f2340',paddingHorizontal : 10}}>
       <View >

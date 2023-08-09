@@ -14,9 +14,11 @@ import {
   useGetGenresQuery,
   useGetPopularQuery,
   useGetSeriesQuery,
+  useGetTopRatedQuery,
   useGetUpcomingQuery,
 } from "../toolkit/ApiQuery";
 import Genres from "../components/Home/Genres";
+import { useSelector } from "react-redux";
 
 const Home = ({ navigation }) => {
   const { data: popularData, isSuccess: popularIsSuccess } =
@@ -25,6 +27,11 @@ const Home = ({ navigation }) => {
   const { data: seriesData, isSuccess: seriesIsSuccess } = useGetSeriesQuery();
   const { data: upcomingData, isSuccess: upcomingIsSuccess } =
     useGetUpcomingQuery();
+  const {data: topRated, isSuccess : topRatedIsSucc} = useGetTopRatedQuery();
+
+    const watchlistData = useSelector((state)=>state.watchlist.watchlistData);
+
+    console.log("wa",watchlistData)
 
   return (
     <View
@@ -102,21 +109,33 @@ const Home = ({ navigation }) => {
             flexDirection: "row",
             justifyContent: "space-between",
             alignItems: "center",
+            marginTop: 10,
+            marginBottom :10
           }}
         >
           <View>
             <Text style={styles.heading}>Watchlist Movies</Text>
             <Text style={styles.subHeading}>Your watchlist movie</Text>
           </View>
-          <TouchableOpacity
-            onPress={() =>
-              navigation.navigate("AllMovie", { path: "movie/popular" })
-            }
-          >
+          {watchlistData.length > 0 &&
+          <TouchableOpacity onPress={()=>navigation.navigate('My Watchlist')}>
             <Text style={{ color: "rgba(255,255,255,0.7)" }}>View all</Text>
           </TouchableOpacity>
-        </View>
-        <Watchlist />
+        }
+          </View>
+          {!watchlistData.length > 0 ? (
+            <Watchlist/>
+            ) : (
+              <FlatList
+                horizontal
+                data={watchlistData}
+                renderItem={({item})=><MovieCard item={item}
+                cardWidth={130}
+                cardHeight={280}
+                navigation={navigation}
+                />}
+              />
+            )}
 
         {/* Upcoming  */}
         <View
@@ -184,6 +203,43 @@ const Home = ({ navigation }) => {
               cardHeight={280}
               navigation={navigation}
               series= {true}
+            />
+          )}
+          keyExtractor={(item) => item.id}
+        />
+
+        {/* all time top rated */}
+
+        <View
+          style={{
+            flexDirection: "row",
+            justifyContent: "space-between",
+            alignItems: "center",
+          }}
+        >
+          <View>
+            <Text style={styles.heading}>Top Rated Movies</Text>
+            <Text style={styles.subHeading}>
+              All time top rated movie in the world
+            </Text>
+          </View>
+          <TouchableOpacity
+            onPress={() =>
+              navigation.navigate("AllMovie", { path: "movie/top_rated" })
+            }
+          >
+            <Text style={{ color: "rgba(255,255,255,0.7)" }}>View all</Text>
+          </TouchableOpacity>
+        </View>
+        <FlatList
+          data={topRatedIsSucc && topRated.results.slice(0, 11)}
+          horizontal={true}
+          renderItem={({ item }) => (
+            <MovieCard
+              item={item}
+              cardWidth={130}
+              cardHeight={280}
+              navigation={navigation}
             />
           )}
           keyExtractor={(item) => item.id}

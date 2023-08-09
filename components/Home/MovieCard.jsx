@@ -3,7 +3,6 @@ import React from "react";
 import { posterURL } from "../../constants/url";
 
 const MovieCard = ({ item, cardWidth, cardHeight,navigation, series = false }) => {
-  // console.log("moviecard data",item)
   return (
     <TouchableOpacity activeOpacity={0.6} onPress={()=>navigation.navigate('Details',{id : item.id,series : series})}>
       <View

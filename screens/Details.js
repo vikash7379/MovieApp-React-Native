@@ -1,15 +1,55 @@
 import { View, Text, StyleSheet, TouchableOpacity, FlatList, ScrollView } from 'react-native'
-import React from 'react'
+import React, {useEffect} from 'react'
 import { useGetMovieDetailsQuery, useGetRecosQuery } from '../toolkit/ApiQuery'
 import Trailer from '../components/Details/Trailer'
 import { StatusBar } from 'expo-status-bar'
 import FontAwesome from 'react-native-vector-icons/FontAwesome'
 import Credits from '../components/Details/Credits'
 import MovieCard from '../components/Home/MovieCard'
+import { useDispatch, useSelector } from 'react-redux'
+import { addWatchlist } from '../toolkit/watchlistSlice'
+import { addFavorite, removeFavorite } from '../toolkit/favoriteSlice'
 
 const Details = ({ navigation, route }) => {
+
+  const dispatch = useDispatch();
+  const watchlistData = useSelector((state)=>state.watchlist.watchlistData);
+  const favoriteData = useSelector((state)=>state.favorite.data);
+
   const { data: movieData, isSuccess: movieDataIsSuccess } = useGetMovieDetailsQuery(route.params.id)
   const {data: recosData, isSuccess: recosIsSuccess} = useGetRecosQuery(movieDataIsSuccess && movieData.id)
+
+
+  const handleWatchlist = (item) => {
+    const data = {
+      id : item.id,
+      title : item.title.slice(0,20),
+      vote_average : item.vote_average.toFixed(1),
+      vote_count : item.vote_count,
+      genres : item.genres[0].name,
+      runtime : item.runtime,
+      poster_path : item.poster_path,
+    }
+    dispatch(addWatchlist(data));
+  }
+
+  const handleAddFavorite = (item) =>{
+    const data = {
+      id : item.id,
+      title : item.title.slice(0,20),
+      vote_average : item.vote_average.toFixed(1),
+      vote_count : item.vote_count,
+      genres : item.genres[0].name,
+      runtime : item.runtime,
+      poster_path : item.poster_path,
+    }
+    dispatch(addFavorite(data));
+  }
+
+  const handleRemoveFavorite = (id) => {
+    dispatch(removeFavorite(id));
+  }
+
 
   return (
     <View style={{ backgroundColor: '#1f2340', flex: 1 }}>
@@ -34,13 +74,26 @@ const Details = ({ navigation, route }) => {
               <Text numberOfLines={7} style={{ color: "rgba(255,255,255,0.7)", marginVertical: 10, fontSize: 16, letterSpacing : 0.8 }}>{movieData.overview}</Text>
             </View>
             <View style={{flexDirection : 'row', gap : 25, marginTop : 10,marginBottom : 14}}>
-              <TouchableOpacity activeOpacity={0.6} style={styles.btn}>
+              {watchlistData.every((item)=>item.id !== movieData.id) ? (
+              <TouchableOpacity activeOpacity={0.6} style={{...styles.btn,borderColor : '#2dfee4'}} onPress={()=>handleWatchlist(movieData)} >
               <Text style={{color : 'white',fontSize : 18}}> Add To Watchlist &nbsp;<FontAwesome name="bookmark-o" color={'white'} size={19}/>
               </Text>
               </TouchableOpacity>
-              <TouchableOpacity activeOpacity={0.6} style={styles.btn2}>
+              ) : (
+                <TouchableOpacity activeOpacity={0.6} style={{...styles.btn,borderColor : 'tomato'}} onPress={()=>navigation.navigate('My Watchlist')} >
+                <Text style={{color : 'white',fontSize : 18}}> Go To Watchlist &nbsp;<FontAwesome name="bookmark-o" color={'white'} size={19}/>
+                </Text>
+                </TouchableOpacity>
+              )}
+              {favoriteData.every((el)=>el.id !== movieData.id) ? (
+              <TouchableOpacity activeOpacity={0.6} style={{...styles.btn2,borderColor : '#2dfee4',}} onPress={()=>handleAddFavorite(movieData)}>
                 <Text style={{fontSize : 30}}><FontAwesome  name='heart-o' color={'white'} size={25}/></Text>
               </TouchableOpacity>
+              ) : (
+                <TouchableOpacity activeOpacity={0.6} style={{...styles.btn2,borderColor : 'tomato',}} onPress={()=>handleRemoveFavorite(movieData.id)}>
+                <Text style={{fontSize : 30}}><FontAwesome  name='heart' color={'tomato'} size={25}/></Text>
+              </TouchableOpacity>
+              )}
             </View>
             <View>
               <Text style={styles.heading}>The Cast</Text>
@@ -78,14 +131,14 @@ const styles = StyleSheet.create({
     backgroundColor : "#27374D",
     borderRadius : 7,
     elevation : 1,
-    borderColor : '#2dfee4',
+
     borderWidth : 1
   },
   btn2: {
     padding : 10,
     elevation : 1,
     borderRadius : 30,
-    borderColor : '#2dfee4',
+
     borderWidth : 1
   }
 })

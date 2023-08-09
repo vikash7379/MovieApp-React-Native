@@ -23,6 +23,12 @@ export const movieApi = createApi({
         method  : "GET"
       })
     }),
+    getTopRated: builder.query({
+      query : () => ({
+        url : `movie/top_rated?api_key=${apiKey}${other}`,
+        method  : "GET"
+      })
+    }),
     getSeries : builder.query({
       query : () => ({
         url  : `trending/tv/day?api_key=${apiKey}${other}`,
@@ -86,4 +92,5 @@ export const {
   useGetCreditsQuery,
   useGetRecosQuery,
   useGetSeriesTrilerQuery,
+  useGetTopRatedQuery,
 } = movieApi;
