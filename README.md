@@ -4,6 +4,21 @@ Welcome to **Movie App**, a React Native application that allows you to explore 
 
 ![Movie App Screenshots](Screenshot/home1.jpg)
 
+## Screenshots
+
+<div style="display: flex; justify-content: space-between;">
+  <img src="Screenshot/home1.jpg" alt="Trending Movies" width="600" height="400">
+  <img src="Screenshot/home2.jpg" alt="Movie Details" width="600" height="400">
+  <img src="Screenshot/details1.jpg" alt="Watchlist" width="600" height="400">
+</div>
+
+<div style="display: flex; justify-content: space-between;">
+  <img src="Screenshot/search.jpg" alt="Trending Movies" width="600" height="400">
+  <img src="Screenshot/login.jpg" alt="Movie Details" width="600" height="400">
+  <img src="Screenshot/profile.jpg" alt="Watchlist" width="600" height="400">
+</div>
+
+
 ## Technologies Used
 
 - **React Native:** Building the user interface and application logic.
