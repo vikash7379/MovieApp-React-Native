@@ -4,6 +4,8 @@ Welcome to **Movie App**, a React Native application that allows you to explore 
 
 <!-- ![Movie App Screenshots](Screenshot/home1.jpg) -->
 
+Video Link - <a href="https://youtu.be/x_GHJq7p6WU" target="_blank">
+
 ## Screenshots
 
 <div style="display: flex; justify-content: space-between; width : full; gap: 100">
