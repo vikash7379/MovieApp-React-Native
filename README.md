@@ -2,7 +2,7 @@
 
 Welcome to **Movie App**, a React Native application that allows you to explore and discover trending movies, view movie details, and manage your watchlist. The app integrates various technologies including Redux for state management, TRK Query for API requests, and TMDB API for movie data.
 
-![Movie App Screenshots](Screenshot/home1.png)
+![Movie App Screenshots](Screenshot/home1.jpg)
 
 ## Technologies Used
 
