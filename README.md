@@ -2,21 +2,24 @@
 
 Welcome to **Movie App**, a React Native application that allows you to explore and discover trending movies, view movie details, and manage your watchlist. The app integrates various technologies including Redux for state management, TRK Query for API requests, and TMDB API for movie data.
 
-![Movie App Screenshots](Screenshot/home1.jpg)
+<!-- ![Movie App Screenshots](Screenshot/home1.jpg) -->
+
+## Screenshots
 
 ## Screenshots
 
 <div style="display: flex; justify-content: space-between;">
-  <img src="Screenshot/home1.jpg" alt="Trending Movies" width="600" height="400">
-  <img src="Screenshot/home2.jpg" alt="Movie Details" width="600" height="400">
-  <img src="Screenshot/details1.jpg" alt="Watchlist" width="600" height="400">
+  <img src="Screenshot/home1.jpg" alt="Home 1" width="400" height="700">
+  <img src="Screenshot/home2.jpg" alt="Home 2" width="400" height="700">
+  <img src="Screenshot/details1.jpg" alt="Details 1" width="400" height="700">
 </div>
 
 <div style="display: flex; justify-content: space-between;">
-  <img src="Screenshot/search.jpg" alt="Trending Movies" width="600" height="400">
-  <img src="Screenshot/login.jpg" alt="Movie Details" width="600" height="400">
-  <img src="Screenshot/profile.jpg" alt="Watchlist" width="600" height="400">
+  <img src="Screenshot/search.jpg" alt="Search" width="400" height="700">
+  <img src="Screenshot/login.jpg" alt="Login" width="400" height="700">
+  <img src="Screenshot/profile.jpg" alt="Profile" width="400" height="700">
 </div>
+
 
 
 ## Technologies Used
