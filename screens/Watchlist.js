@@ -9,7 +9,6 @@ import { StatusBar } from "expo-status-bar";
 const Watchlist = ({ navigation }) => {
 
   const data = useSelector((state) => state.watchlist.watchlistData);
-  console.log("data in watchlist",data.length);
 
   return (
     <View
@@ -32,7 +31,7 @@ const Watchlist = ({ navigation }) => {
           <View>
               <FlatList
                 data={data}
-                renderItem={({item})=><WatchlistCard item={item}/>}
+                renderItem={({item})=><WatchlistCard item={item} navigation={navigation}/>}
                 keyExtractor={(item)=>item.id}
               />
           </View>

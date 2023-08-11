@@ -8,7 +8,7 @@ import {
 } from "react-native";
 import React, { useEffect } from "react";
 
-import backgroundImg from "../assets/wall.jpg";
+import backgroundImg from "../assets/splash.jpg";
 
 const Welcome = () => {
   const bounceValue = new Animated.Value(0);

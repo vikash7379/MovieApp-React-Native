@@ -11,6 +11,12 @@ export const movieApi = createApi({
         method : "GET"
       }),
     }),
+    getNowPlaying: builder.query({
+      query: () => ({
+        url : `movie/now_playing?api_key=${apiKey}${other}`,
+        method : "GET"
+      }),
+    }),
     getGenres : builder.query({
       query : () => ({
         url : `genre/movie/list?api_key=${apiKey}${other}`,
@@ -76,6 +82,12 @@ export const movieApi = createApi({
         url : `movie/${id}/similar?api_key=${apiKey}${other}`,
         method : "GET"
       })
+    }),
+    getSearch : builder.query({
+      query : (text)=>({
+        url : `search/movie?query=${text}&include_adult=false&api_key=${apiKey}${other}`,
+        method : "GET"
+      })
     })
   }),
 });
@@ -93,4 +105,6 @@ export const {
   useGetRecosQuery,
   useGetSeriesTrilerQuery,
   useGetTopRatedQuery,
+  useGetSearchQuery,
+  useGetNowPlayingQuery,
 } = movieApi;

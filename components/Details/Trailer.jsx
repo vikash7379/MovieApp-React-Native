@@ -15,12 +15,12 @@ const Trailer = ({id,series = false}) => {
         if(trailerIsSuccess){
             let data = trailer.results
             let len = data.length;
-            setTrailerKey(data[len-1].key)
+            setTrailerKey(data[len-1]?.key)
         }
         else if(seriesIsSuccess){
             let data = seriesTrailer.results
             let len = data.length;
-            setTrailerKey(data[len-1].key)
+            setTrailerKey(data[len-1]?.key)
         }
     },[trailerIsSuccess,trailer,seriesTrailer,seriesIsSuccess])
 
@@ -33,6 +33,7 @@ const Trailer = ({id,series = false}) => {
         marginBottom : 20,
         elevation : 0
     }}>
+
         <YoutubePlayer
             webViewStyle={{opacity : 0.99,height : 200}}
             play={true}
@@ -41,8 +42,9 @@ const Trailer = ({id,series = false}) => {
             mute
             // contentScale={1.1}
             allowWebViewZoom={true}
-            initialPlayerParams={{loop : true,controls : false}}
+            initialPlayerParams={{loop : true,controls : false,origin :''}}
         />
+
     </View>
   )
 }

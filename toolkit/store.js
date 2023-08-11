@@ -10,6 +10,7 @@ import { watchlistSlice } from "./watchlistSlice";
 import { persistStore, persistReducer } from "redux-persist";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import {favoriteSlice} from "./favoriteSlice";
+import {userSlice} from "./userSlice";
 
 
 const persistConfig = {
@@ -20,6 +21,7 @@ const persistConfig = {
 const rootReducer = combineReducers({
   watchlist:persistReducer(persistConfig,watchlistSlice.reducer),
   favorite :persistReducer(persistConfig,favoriteSlice.reducer),
+  user : persistReducer(persistConfig,userSlice.reducer),
   movieApi: movieApi.reducer,
   allMovie: allMovieSlice.reducer,
 });

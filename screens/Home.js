@@ -31,7 +31,6 @@ const Home = ({ navigation }) => {
 
     const watchlistData = useSelector((state)=>state.watchlist.watchlistData);
 
-    console.log("wa",watchlistData)
 
   return (
     <View

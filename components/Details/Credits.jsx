@@ -12,7 +12,7 @@ const Credits = ({id}) => {
         <FlatList
             horizontal
             showsHorizontalScrollIndicator={false}
-            data={isSuccess && creditData.cast.slice(0,7)}
+            data={isSuccess && creditData.cast.slice(0,10)}
             renderItem={({item})=><RenderUi item={item}/>}
             keyExtractor={(item)=>item.id}
 
