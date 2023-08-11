@@ -6,13 +6,13 @@ Welcome to **Movie App**, a React Native application that allows you to explore 
 
 ## Screenshots
 
-<div style="display: flex; justify-content: space-between;">
+<div style="display: flex; justify-content: space-between; width : full; gap: 40">
   <img src="Screenshot/home1.jpg" alt="Home 1" width="200" height="400">
   <img src="Screenshot/home2.jpg" alt="Home 2" width="200" height="400">
   <img src="Screenshot/details1.jpg" alt="Details 1" width="200" height="400">
 </div>
 
-<div style="display: flex; justify-content: space-between;">
+<div style="display: flex; justify-content: space-between; width : full; gap: 40">
   <img src="Screenshot/search.jpg" alt="Search" width="200" height="400">
   <img src="Screenshot/login.jpg" alt="Login" width="200" height="400">
   <img src="Screenshot/profile.jpg" alt="Profile" width="200" height="400">
