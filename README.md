@@ -6,18 +6,16 @@ Welcome to **Movie App**, a React Native application that allows you to explore 
 
 ## Screenshots
 
-## Screenshots
-
 <div style="display: flex; justify-content: space-between;">
-  <img src="Screenshot/home1.jpg" alt="Home 1" width="300" height="600">
-  <img src="Screenshot/home2.jpg" alt="Home 2" width="300" height="600">
-  <img src="Screenshot/details1.jpg" alt="Details 1" width="300" height="600">
+  <img src="Screenshot/home1.jpg" alt="Home 1" width="250" height="500">
+  <img src="Screenshot/home2.jpg" alt="Home 2" width="250" height="500">
+  <img src="Screenshot/details1.jpg" alt="Details 1" width="250" height="500">
 </div>
 
 <div style="display: flex; justify-content: space-between;">
-  <img src="Screenshot/search.jpg" alt="Search" width="300" height="600">
-  <img src="Screenshot/login.jpg" alt="Login" width="300" height="600">
-  <img src="Screenshot/profile.jpg" alt="Profile" width="300" height="600">
+  <img src="Screenshot/search.jpg" alt="Search" width="250" height="500">
+  <img src="Screenshot/login.jpg" alt="Login" width="250" height="500">
+  <img src="Screenshot/profile.jpg" alt="Profile" width="250" height="500">
 </div>
 
 
